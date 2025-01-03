@@ -20,7 +20,7 @@ func returnRandomValue(_ size: Int) -> Int {
 
 func readFile(_ path: String) throws -> [String] {
   do {
-    guard !path.isEmpty else {
+    guard !path.isEmpty else {  
       throw FileError.invalidPath
     }
     let fileURL = URL(fileURLWithPath: path)
@@ -32,3 +32,15 @@ func readFile(_ path: String) throws -> [String] {
     throw FileError.readingFailed
   }
 }
+
+func main(_ filePath: String) {
+  do {
+    let values = try readFile(filePath)
+    let randomValue = returnRandomValue(values.count)
+    print(values[randomValue])
+  } catch {
+    print(error)
+  }
+}
+
+main("")
