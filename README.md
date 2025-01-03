@@ -30,6 +30,8 @@ $ cd RandomSelectionKit
 $ swift build
 ```
 
+When you build a package, the executable will be pushed to:
+
 ```shell
 $ cd .build/debug
 $ ./RandomSelectionKit
