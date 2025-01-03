@@ -18,7 +18,9 @@ func readFile(_ path: String) -> [String] {
       print("File path should not be empty!")
       return []
     }
-    return try String(contentsOfFile: path, encoding: .utf8)
+    let fileURL = URL(fileURLWithPath: path)
+    let normalizedPath = fileURL.standardizedFileURL.path
+    return try String(contentsOfFile: normalizedPath, encoding: .utf8)
                       .components(separatedBy: "\n")
                       .filter { !$0.isEmpty }
   } catch {
@@ -27,4 +29,4 @@ func readFile(_ path: String) -> [String] {
   }
 }
 
-print(readFile("test.txt"))
+print(readFile(""))
