@@ -1,0 +1,22 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:RandomSelectionKit}",
+      "name": "Debug RandomSelectionKit",
+      "program": "${workspaceFolder:RandomSelectionKit}/.build/debug/RandomSelectionKit",
+      "preLaunchTask": "swift: Build Debug RandomSelectionKit"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder:RandomSelectionKit}",
+      "name": "Release RandomSelectionKit",
+      "program": "${workspaceFolder:RandomSelectionKit}/.build/release/RandomSelectionKit",
+      "preLaunchTask": "swift: Build Release RandomSelectionKit"
+    }
+  ]
+}
