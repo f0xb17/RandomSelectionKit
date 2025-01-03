@@ -61,6 +61,9 @@ fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
 
-# Exclude .vscode
-.vscode
-.vscode/launch.json
+# Ignore the .vscode folder
+.vscode/
+
+# Ignore the test.txt file
+test.txt
+

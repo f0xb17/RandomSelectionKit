@@ -12,6 +12,19 @@ func returnRandomValue(_ size: Int) -> Int {
   return Int.random(in: 0...size) % size
 }
 
-for _ in 1...10 {
-  print(returnRandomValue(10))
+func readFile(_ path: String) -> [String] {
+  do {
+    guard !path.isEmpty else {
+      print("File path should not be empty!")
+      return []
+    }
+    return try String(contentsOfFile: path, encoding: .utf8)
+                      .components(separatedBy: "\n")
+                      .filter { !$0.isEmpty }
+  } catch {
+    print("Error reading file: \(error)")
+    return []
+  }
 }
+
+print(readFile("test.txt"))
