@@ -8,15 +8,20 @@
 
 import Foundation
 
+enum FileError: Error {
+    case fileNotFound
+    case invalidPath
+    case readingFailed
+}
+
 func returnRandomValue(_ size: Int) -> Int {
   return Int.random(in: 0...size) % size
 }
 
-func readFile(_ path: String) -> [String] {
+func readFile(_ path: String) throws -> [String] {
   do {
     guard !path.isEmpty else {
-      print("File path should not be empty!")
-      return []
+      throw FileError.invalidPath
     }
     let fileURL = URL(fileURLWithPath: path)
     let normalizedPath = fileURL.standardizedFileURL.path
@@ -24,9 +29,6 @@ func readFile(_ path: String) -> [String] {
                       .components(separatedBy: "\n")
                       .filter { !$0.isEmpty }
   } catch {
-    print("Error reading file: \(error)")
-    return []
+    throw FileError.readingFailed
   }
 }
-
-print(readFile(""))
